@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/daily_deal'
+require "bundler/setup"
+require "pop_pulse"
 
-PopPulse::CLI.new.call
+PopPulse::CLI3.new.run
