@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
 # Specify your gem's dependencies in pop_pulse.gemspec
 gemspec
 
@@ -8,4 +10,3 @@ gem 'nokogiri'
 gem 'pry'
 gem 'open-uri'
 gem 'httparty'
-gem 'pop_pulse'
