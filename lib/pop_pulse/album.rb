@@ -1,12 +1,9 @@
 class PopPulse::Album
-    attr_accessor :album, :title, :date, :url
+    attr_accessor :title, :date, :url, :rating, :review
 
     @@all = []
 
-    def initialize (title, date, url)
-        @title = title
-        @date = date
-        @url = url
+    def initialize
         @@all << self
     end
 

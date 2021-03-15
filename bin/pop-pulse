@@ -2,5 +2,6 @@
 
 require "bundler/setup"
 require "pop_pulse"
+require_relative "../lib/pop_pulse"
 
-PopPulse::CLI3.new.run
+PopPulse::CLI.new.run
