@@ -1,4 +1,5 @@
 require_relative "./scraper.rb"
+require 'colorize'
 
 class PopPulse::CLI
   
@@ -15,14 +16,16 @@ end
 
 def list_albums
   puts ""
-  puts "Albums are listed from newest to oldest.
-Enter the corresponding number to learn more:"
-  puts ""
+  puts "Learn more about a specific album by entering its number
+or type 'exit' to live a Kanye-free lifestyle: \n\n"
   @albums = PopPulse::Album.all
   @albums.each_with_index do |album, i|
-    puts "#{i+1}: #{album.title}"
+    puts "#{i+1}. #{album.title}".light_blue
   end
 end
+
+def self.kanye
+  puts ""
 
 def menu
   input = nil
@@ -42,35 +45,23 @@ end
 
   
   def loading_message
-    puts "________________________________"
-    puts ""
-    puts "------WELCOME TO POP PULSE------"
-    puts "________________________________"
+    puts "________________________________\n\n".magenta
+    puts "------WELCOME TO POP PULSE------\n\n".white.on_magenta
+    puts "________________________________\n\n".magenta
     sleep (2)
-    puts ""
-    puts "    Do you like Kanye West ?"
-    puts ""
+    puts "    Do you like Kanye West ?\n\n".light_blue
   end
   
   def greeting
-    puts "-----------------------------------"
-    puts ""
+    puts "--------------------------------\n\n".magenta
     puts "NO MATTER THE ANSWER, Kanye West is the most
-fascinating pop artist of the 21st century."
-    puts ""
+fascinating pop artist of the 21st century.\n\n"
     sleep (3)
     puts "Acclaimed and derided in equal measure, 
-Kanye has quite the discography."
-    puts ""
+Kanye has quite the discography.\n\n"
     sleep (3)
-    puts "Choose an album from the list below and
-enter its number to learn more."
-    puts ""
-    puts "Or type 'exit' to live a Kanye-free lifestyle."
-    puts ""
-    puts "retrieving albums..."
+    puts "retrieving albums...\n\n"
     sleep (3)
-    puts ""
   end
 
   def menu
@@ -92,40 +83,29 @@ end
   def album_info(input)
     album = @albums[input.to_i - 1]
     PopPulse::Scraper.scrape_album_page(album) if !album.rating
-    puts ""
-    puts "#{album.title.upcase}"
-    puts ""
-    puts "Release Date: #{album.date}"
-    puts ""
-    puts "Pitchfork Rating: #{album.rating}"
-    puts ""
-    puts "Review Excerpt: #{album.review.split(' ').slice(0,100).join(' ')}..."
-    puts ""
+    puts "#{album.title.upcase}\n\n".light_blue
+    puts "Release Date: #{album.date}\n\n"
+    puts "Pitchfork Rating: #{album.rating}\n\n"
+    puts "Review Excerpt: \n\n#{album.review.split(' ').slice(0,100).join(' ')}...\n\n"
     puts "For the full review, head to:"
-    puts "#{album.url}"
-    puts ""
+    puts "#{album.url}\n\n"
     options
   end
 
   def options
     puts "Type list to see Kanye's discography again 
-or exit to live a Kanye-free lifestyle."
+or exit to live a Kanye-free lifestyle.\n\n"
   end
 
 
   def error
-    puts ""
-    puts "Try again, bucko."
-    puts ""
+    puts "Try again, bucko.\n\n"
   end
 
   
   def close_app
-    puts ""
-    puts "Wish Kanye well during his divorce proceedings :-("
+    puts "\n\nWish Kanye well during his divorce proceedings :-(\n\n"
     sleep (1)
-    puts ""
-    puts "Adios muchacho"
-    puts ""
+    puts "Adios muchacho\n\n"
     exit
   end
