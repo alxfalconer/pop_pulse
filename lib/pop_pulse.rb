@@ -3,6 +3,7 @@ require 'pry'
 require 'open-uri'
 require 'net/http'
 require 'httparty'
+require 'colorize'
 
 require_relative "./pop_pulse/version"
 require_relative './pop_pulse/cli'
