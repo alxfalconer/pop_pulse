@@ -24,9 +24,6 @@ or type 'exit' to live a Kanye-free lifestyle: \n\n"
   end
 end
 
-def self.kanye
-  puts ""
-
 def menu
   input = nil
   while input != "exit"
@@ -60,33 +57,18 @@ fascinating pop artist of the 21st century.\n\n"
     puts "Acclaimed and derided in equal measure, 
 Kanye has quite the discography.\n\n"
     sleep (3)
-    puts "retrieving albums...\n\n"
+    puts "retrieving albums...\n\n".light_blue
     sleep (3)
   end
-
-  def menu
-    input = nil
-    while input != "exit"
-    input = gets.strip.downcase
-    if input.to_i > 0 && input.to_i <= @albums.size
-      album_info(input)
-    elsif input == "list"
-      list_albums
-    elsif input == "exit"
-      close_app
-    else
-      error
-    end
-  end
-end
 
   def album_info(input)
     album = @albums[input.to_i - 1]
     PopPulse::Scraper.scrape_album_page(album) if !album.rating
-    puts "#{album.title.upcase}\n\n".light_blue
-    puts "Release Date: #{album.date}\n\n"
+    puts "\n\nYou picked #{album.title.upcase}".light_blue
+    puts "Release Date: #{album.date}"
     puts "Pitchfork Rating: #{album.rating}\n\n"
-    puts "Review Excerpt: \n\n#{album.review.split(' ').slice(0,100).join(' ')}...\n\n"
+    puts "Review Excerpt:
+  #{album.review.split(' ').slice(0,100).join(' ')}...\n\n"
     puts "For the full review, head to:"
     puts "#{album.url}\n\n"
     options
@@ -94,7 +76,7 @@ end
 
   def options
     puts "Type list to see Kanye's discography again 
-or exit to live a Kanye-free lifestyle.\n\n"
+or exit to live a Kanye-free lifestyle.\n\n".light_blue
   end
 
 
@@ -104,8 +86,7 @@ or exit to live a Kanye-free lifestyle.\n\n"
 
   
   def close_app
-    puts "\n\nWish Kanye well during his divorce proceedings :-(\n\n"
-    sleep (1)
-    puts "Adios muchacho\n\n"
+    puts "\n\nWish Kanye well during his divorce proceedings :-(\n\n".light_blue
+    sleep (2)
     exit
   end

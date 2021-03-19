@@ -9,5 +9,4 @@ gem "rake", "~> 12.0"
 gem 'nokogiri'
 gem 'pry'
 gem 'open-uri'
-gem 'httparty'
 gem 'colorize'
