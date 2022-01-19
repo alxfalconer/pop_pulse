@@ -10,4 +10,13 @@ class PopPulse::Album
     def self.all
         @@all
     end
-end
+
+    def sort_by
+       @albums.sort_by {|rating| rating.n}
+    end
+
+
+
+    .sort_by{|i| i.scan(/\d+/))}
+
+    

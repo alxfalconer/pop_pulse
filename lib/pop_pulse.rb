@@ -1,8 +1,6 @@
 require 'nokogiri'
 require 'pry'
 require 'open-uri'
-require 'net/http'
-require 'httparty'
 require 'colorize'
 
 require_relative "./pop_pulse/version"
