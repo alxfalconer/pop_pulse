@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/alxfalconer/pop_pulse.git"
   spec.metadata["changelog_uri"] = "https://github.com/alxfalconer/pop_pulse/blob/master/CHANGELOG.md"
 
-  # Specif whic fil shoul be added to the gem when it is released.
+  # Specif whic fil shoul b added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
